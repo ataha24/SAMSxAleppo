@@ -23,117 +23,153 @@
 
     body {
       font-family: 'Noto Naskh Arabic', serif;
-      background: radial-gradient(circle, #fdfcfb 0%, #e2d1c3 100%);
+      background: linear-gradient(135deg, #fdfcfb, #f3f0ea);
       color: var(--text);
       overflow-x: hidden;
     }
 
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/geometry.png');
+      opacity: 0.07;
+      z-index: -1;
+    }
+
     header {
-      background: linear-gradient(135deg, #00172b, #005766);
+      background: radial-gradient(circle at center, #003246 0%, #00131c 100%);
       color: white;
       text-align: center;
-      padding: 6em 1em 5em;
+      padding: 8em 1em 6em;
       position: relative;
       clip-path: ellipse(100% 100% at 50% 0%);
+      overflow: hidden;
     }
 
     header .logo {
-      width: 130px;
-      height: 130px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       border: 4px solid #fff;
       animation: pulse 3s infinite;
       margin-bottom: 1em;
+      box-shadow: 0 0 20px rgba(255,255,255,0.4);
     }
 
     @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
-      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.6); }
+      70% { transform: scale(1.08); box-shadow: 0 0 30px 10px rgba(255,255,255,0); }
       100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0); }
     }
 
     header h1 {
-      font-size: 3em;
-      text-shadow: 3px 3px 12px rgba(0,0,0,0.3);
-      animation: fadeIn 2s ease-out;
+      font-size: 3.5em;
+      background: linear-gradient(to left, #f8b400, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowTitle 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowTitle {
+      from { text-shadow: 0 0 10px #f8b40033; }
+      to { text-shadow: 0 0 25px #f8b40099; }
     }
 
     header p {
       font-size: 1.5em;
       max-width: 700px;
       margin: auto;
-      animation: fadeInUp 2s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+      color: #f0f0f0;
+      opacity: 0.95;
+      animation: fadeInUp 1.5s ease-out 0.4s both;
     }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     .button {
       display: inline-block;
       background: var(--accent);
       color: #fff;
-      padding: 0.9em 2em;
-      margin-top: 1.5em;
+      padding: 1em 2.5em;
+      margin-top: 2em;
       font-size: 1.2em;
       font-weight: bold;
-      border-radius: 50px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      border-radius: 60px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       transition: all 0.4s ease;
       position: relative;
-      z-index: 2;
+    }
+
+    .button::before {
+      content: '✨';
+      position: absolute;
+      left: 1.2em;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.5; }
     }
 
     .button:hover {
       background: #c49100;
-      transform: scale(1.07);
+      transform: scale(1.08);
     }
 
     section {
-      padding: 5em 2em;
+      padding: 6em 2em;
       max-width: 1000px;
       margin: auto;
       position: relative;
-      z-index: 1;
     }
 
     h2 {
-      font-size: 2.5em;
+      font-size: 2.8em;
       color: var(--primary);
-      margin-bottom: 1em;
-      border-bottom: 4px double var(--accent);
+      margin-bottom: 1.2em;
+      border-bottom: 5px dashed var(--accent);
       display: inline-block;
+      position: relative;
+    }
+
+    h2::after {
+      content: '🌟';
+      position: absolute;
+      right: -2.2em;
+      top: -0.4em;
+      font-size: 1.2em;
     }
 
     p {
-      font-size: 1.25em;
-      margin-bottom: 1.5em;
-      line-height: 1.9;
-    }
-
-    .glow {
-      text-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent), 0 0 20px var(--accent);
+      font-size: 1.3em;
+      margin-bottom: 2em;
+      line-height: 2;
+      color: #333;
     }
 
     .doctor-card {
-      background: linear-gradient(145deg, #ffffff, #f0f0f0);
-      border-radius: 20px;
-      margin-bottom: 2em;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      background: #ffffffee;
+      border-radius: 24px;
+      margin-bottom: 2.5em;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.12);
       display: grid;
       grid-template-columns: 160px 1fr;
       overflow: hidden;
-      transition: transform 0.3s ease;
+      transform: scale(1);
+      transition: all 0.3s ease;
     }
 
     .doctor-card:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.2);
     }
 
     .doctor-image {
@@ -142,36 +178,50 @@
     }
 
     .doctor-info {
-      padding: 1.5em;
+      padding: 2em;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     .doctor-info h3 {
-      font-size: 1.4em;
+      font-size: 1.5em;
       color: var(--primary);
-      margin-bottom: 0.5em;
+      margin-bottom: 0.6em;
     }
 
     .doctor-info span {
       color: var(--secondary);
       font-weight: bold;
-      margin-bottom: 0.4em;
+      margin-bottom: 0.5em;
     }
 
     footer {
-      background: linear-gradient(to right, var(--primary), var(--secondary));
+      background: conic-gradient(from 180deg at 50% 50%, var(--primary), var(--secondary), var(--primary));
       color: white;
       text-align: center;
-      padding: 3em 1em;
-      font-size: 1em;
+      padding: 4em 2em;
+      font-size: 1.1em;
       clip-path: ellipse(100% 100% at 50% 100%);
+      position: relative;
+    }
+
+    footer::before {
+      content: '🌍';
+      font-size: 2em;
+      display: block;
+      margin-bottom: 0.4em;
+      animation: spin 6s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0); }
+      to { transform: rotate(360deg); }
     }
 
     @media (max-width: 768px) {
-      header h1 { font-size: 2em; }
-      header p { font-size: 1.1em; }
+      header h1 { font-size: 2.4em; }
+      header p { font-size: 1.2em; }
       .doctor-card { grid-template-columns: 1fr; }
     }
   </style>
@@ -179,35 +229,35 @@
 <body>
   <header>
     <img src="img/logo.jpeg" alt="شعار سامس" class="logo">
-    <h1 class="glow">حملة سامس الطبية – حلب 2025</h1>
-    <p>تجربة صحية لا تُنسى، من قلوب نابضة بالرحمة من قارات أخرى.</p>
-    <a class="button" href="#doctors">انطلق إلى التفاصيل</a>
+    <h1>حملة سامس الطبية – حلب 2025</h1>
+    <p>صوت الطبّ، قادم من بعيد… ليشفي القلوب والعظام والعزائم.</p>
+    <a class="button" href="#doctors">ابدأ الرحلة</a>
   </header>
 
   <section>
     <h2>من نحن؟</h2>
-    <p>نحن SAMS، نعيد تعريف العمل الإنساني بالرعاية، والتطوع، والتضامن عبر الحدود. نحن هنا لنكون جسراً بين الأمل والحاجة.</p>
+    <p>نحن SAMS، نكتب قصة الرحمة بالبند العريض. نحن الضوء في آخر الممر. نحن القادمون من البعيد لنكون أقرب من القريب.</p>
   </section>
 
   <section>
     <h2>رؤية الحملة</h2>
-    <p>في قلب حلب، تُضيء هذه الحملة بجهود أطباء عالميين، لحظات فارقة من الشفاء والعناية. كل نبضة، كل زيارة، هي وعد بالكرامة الطبية.</p>
+    <p>تخيل وجهاً يضيء بعد الألم… هذا هو هدفنا. في مستشفى حلب الوطني، أطباء من قارات بعيدة يقدّمون وقتهم، خبرتهم، وقلوبهم.</p>
   </section>
 
   <section id="doctors">
     <h2>الأطباء الزائرون</h2>
-    <!-- Add doctor cards dynamically or manually here -->
+    <!-- Doctor cards go here -->
   </section>
 
   <section>
     <h2>تواصل معنا</h2>
-    <p>فريقنا مستعد للإجابة على أسئلتك وتوجيهك.</p>
+    <p>جاهزون للاستماع إليك، ومساعدتك خطوة بخطوة.</p>
     <a class="button" href="mailto:samsxzabadani@gmail.com"><i class="fa fa-envelope"></i> البريد الإلكتروني</a>
     <a class="button" href="https://wa.me/message/IC4AEJ4GDPMCO1" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a>
   </section>
 
   <footer>
-    كل الحقوق محفوظة © 2025 – حملة سامس الطبية | إنسانية بلا حدود
+    حملة سامس الطبية – حلب 2025<br> لأن الإنسان أغلى من كل شيء.
   </footer>
 </body>
 </html>
