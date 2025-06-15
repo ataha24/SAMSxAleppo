@@ -115,6 +115,15 @@
       transform: scale(1.05);
     }
 
+    .section-divider {
+      width: 100%;
+      height: 60px;
+      background: radial-gradient(circle at center, var(--accent), transparent 70%);
+      opacity: 0.4;
+      margin-top: -40px;
+      margin-bottom: 40px;
+    }
+
     .doctor-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -124,16 +133,34 @@
 
     .doctor-card {
       background: white;
-      border: 1px solid #ddd;
       border-radius: 16px;
       padding: 1.5em;
+      position: relative;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .doctor-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(to right, var(--secondary), var(--accent));
+      transition: transform 0.3s ease;
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    .doctor-card:hover::before {
+      transform: scaleX(1);
     }
 
     .doctor-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
     }
 
     .doctor-card h3 {
@@ -194,11 +221,15 @@
     <p>SAMS هي منظمة طبية إغاثية غير ربحية، تكرّس جهودها لتقديم الرعاية الصحية والتعليم الطبي في المناطق المتأثرة بالأزمات. في قلب مهمتنا: <span class="highlight">الكرامة، والعلم، والتضامن</span>.</p>
   </section>
 
+  <div class="section-divider"></div>
+
   <section>
     <h2>عن الحملة</h2>
     <p>خلال أسبوعين من شهر تموز 2025، سيقوم فريق من الأطباء الزائرين بتقديم استشارات مجانية ضمن مستشفى حلب الوطني. التخصصات تشمل: <span class="highlight">أمراض القلب، الأعصاب، الصدرية، الكلى</span> والعلاج الفيزيائي.</p>
     <a class="button" href="#contact">احجز موعدك الآن</a>
   </section>
+
+  <div class="section-divider"></div>
 
   <section>
     <h2>الأطباء المشاركون</h2>
@@ -225,6 +256,8 @@
       </div>
     </div>
   </section>
+
+  <div class="section-divider"></div>
 
   <section id="contact">
     <h2>تواصل معنا</h2>
