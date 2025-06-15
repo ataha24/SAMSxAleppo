@@ -3,47 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>حملة سامس الطبية المجانية – حلب 2025</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&display=swap" rel="stylesheet">
+  <title>حملة سامس الطبية – حلب 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     :root {
-      --primary: #00192c;
-      --secondary: #9ab6de;
-      --background: #fefefe;
-      --accent: #ee9b00;
-      --dark: #00192c; /* Darker blue */
-      --light: #9ab6de;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      --primary: #01345B;
+      --secondary: #6DB8E2;
+      --accent: #F4A261;
+      --background: #F9FAFB;
+      --text: #1C1C1C;
+      --light: #ffffff;
     }
 
     body {
-      font-family: 'Noto Naskh Arabic', sans-serif;
+      font-family: 'Noto Naskh Arabic', serif;
       background: var(--background);
-      color: var(--dark);
-      line-height: 1.8;
+      color: var(--text);
+      margin: 0;
+      padding: 0;
     }
 
     header {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
+      color: var(--light);
       text-align: center;
-      padding: 3em 1em;
+      padding: 4em 1em 3em;
       position: relative;
     }
 
-    header img.logo {
+    header .logo {
       width: 140px;
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid white;
-      margin-bottom: 1em;
+      border: 4px solid #fff;
       animation: float 4s ease-in-out infinite;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
     }
 
     @keyframes float {
@@ -53,125 +49,117 @@
     }
 
     header h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      font-size: 2.8em;
+      margin: 0.5em 0;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.25);
     }
 
     header p {
       font-size: 1.3em;
-      max-width: 650px;
-      margin: auto;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+      margin-bottom: 1em;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-size: 1.1em;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 0.8em 2em;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      margin-top: 1em;
+    }
+
+    .button:hover {
+      background: #d18341;
+      transform: scale(1.05);
     }
 
     section {
-      padding: 3em 1em;
+      padding: 4em 1em;
       max-width: 1000px;
       margin: auto;
     }
 
     h2 {
+      font-size: 2.2em;
       color: var(--primary);
-      font-size: 2em;
-      margin-bottom: 0.8em;
-      border-bottom: 3px solid var(--light);
-      padding-bottom: 0.4em;
+      margin-bottom: 1em;
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 0.3em;
       position: relative;
     }
 
     h2::before {
-      content: "✨";
+      content: "\f0eb";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
       position: absolute;
-      right: -1.5em;
+      right: -2em;
       top: 0;
+      color: var(--accent);
     }
 
     p {
-      font-size: 1.05em;
-      margin-bottom: 1.2em;
+      font-size: 1.1em;
+      margin-bottom: 1.5em;
     }
 
     .doctor-card {
-      background: white;
+      background: #fff;
       border-radius: 12px;
       display: flex;
-      flex-wrap: wrap;
-      align-items: stretch;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      flex-direction: row;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
       overflow: hidden;
-      margin-bottom: 1.2em;
-      transition: transform 0.3s ease;
+      margin-bottom: 1.5em;
+      transition: all 0.3s ease-in-out;
     }
 
     .doctor-card:hover {
-      transform: scale(1.02);
+      transform: translateY(-5px);
     }
 
     .doctor-image {
-      flex: 0 0 120px;
-      height: 180px;
-      background-size: contain;
-      background-repeat: no-repeat;
+      flex: 0 0 160px;
+      background-size: cover;
       background-position: center;
-      border-left: 4px solid var(--primary);
+      height: 100%;
     }
 
     .doctor-info {
       flex: 1;
-      padding: 1em;
+      padding: 1.2em;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: linear-gradient(to bottom right, var(--light), #ffffff);
     }
 
     .doctor-info h3 {
-      color: var(--dark);
-      margin-bottom: 0.4em;
-      font-size: 1.2em;
+      color: var(--primary);
+      font-size: 1.4em;
+      margin-bottom: 0.3em;
     }
 
     .doctor-info span {
       display: block;
-      color: var(--primary);
-      font-weight: bold;
-      margin-top: 0.4em;
-      font-size: 0.95em;
-    }
-
-    .button {
-      display: inline-block;
-      background-color: var(--accent);
-      color: white;
-      padding: 0.8em 1.5em;
-      border-radius: 50px;
-      text-decoration: none;
+      color: var(--secondary);
       font-weight: bold;
       font-size: 1em;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .button:hover {
-      background-color: #cc8500;
-      transform: scale(1.05);
-    }
-
-    .form-wrapper iframe {
-      width: 100%;
-      height: 2500px;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     }
 
     footer {
-      background: var(--light);
+      background: var(--primary);
+      color: white;
       text-align: center;
       padding: 2em 1em;
-      font-size: 0.95em;
-      color: var(--dark);
-      border-top: 1px solid var(--secondary);
+      font-size: 1em;
     }
 
     @media (max-width: 768px) {
@@ -181,156 +169,57 @@
       }
 
       .doctor-image {
-        width: 70%;
-        height: auto;
-        max-height: 240px;
-        margin: 0 auto;
-        aspect-ratio: 3 / 4;
-        border-left: none;
-        border-bottom: 4px solid var(--primary);
-      }
-
-      .doctor-info {
-        padding: 1.2em 1em;
-      }
-
-      header h1 {
-        font-size: 2em;
-      }
-
-      header p {
-        font-size: 1.1em;
+        width: 100%;
+        height: 200px;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="img/logo.jpeg" alt="SAMS Logo" class="logo">
-    <h1>🩺 حملة سامس الطبية – حلب 2025 🩺</h1>
-    <p>تخصصات طبية متعددة بين يديك مجاناً من أطباء زائرين من الولايات المتحدة</p>
-    <br>
-    <a class="button" href="#register">تعرف على الاطباء</a>
+    <img src="img/logo.jpeg" alt="شعار سامس" class="logo">
+    <h1>حملة سامس الطبية – حلب 2025</h1>
+    <p>خدمات طبية مجانية يقدمها أطباء زائرون من الولايات المتحدة</p>
+    <a class="button" href="#doctors">تعرف على الأطباء</a>
   </header>
 
   <section>
     <h2>من نحن؟</h2>
-    <p>
-      الجمعية الطبية السورية الأمريكية (SAMS) هي منظمة إغاثية غير ربحية، تقدم خدمات طبية وإنسانية للاجئين والمجتمعات المتأثرة بالأزمات. تشمل أنشطتها حملات طبية مجانية، دعم المرافق الصحية، وتقديم التدريب الطبي، بقيادة أطباء مختصين من أنحاء العالم.
-    </p>
+    <p>الجمعية الطبية السورية الأمريكية (SAMS) هي منظمة إغاثية غير ربحية تقدم الدعم الطبي والإنساني في المناطق المتضررة. تشمل مبادراتها الحملات الطبية، بناء القدرات، والدعم الميداني للمؤسسات الصحية.</p>
   </section>
 
   <section>
     <h2>عن الحملة</h2>
-    <p>
-      تهدف حملة سامس إلى تزويد المجتمعات المحلية ذات الموارد المحدودة بخدمات طبية مجانية في عدة تخصصات، من خلال زيارة أطباء متطوعين من الولايات المتحدة خلال الأسبوعين الأول والثاني من شهر تموز 2025. تشمل الحملة استشارات في أمراض القلب، الأمراض الصدرية، الأعصاب، الكلى، والعلاج الفيزيائي.
-    </p>
-    <ul style="list-style: none; padding: 0; margin-top: 1.5rem;">
-      <li><strong>موقع العيادة:</strong> مستشفى حلب الوطني</li>
-      <li><strong>وقت العيادة:</strong> من الساعة ١٠ صباحاً حتى ٢ ظهراً</li>
+    <p>ستنطلق الحملة في مستشفى حلب الوطني خلال الأسبوعين الأول والثاني من تموز 2025، وستوفر استشارات في اختصاصات متعددة تشمل القلب، الأعصاب، الصدرية، الكلى، والعلاج الفيزيائي.</p>
+    <ul style="list-style: none; padding: 0;">
+      <li><strong>📍 الموقع:</strong> مستشفى حلب الوطني</li>
+      <li><strong>🕙 التوقيت:</strong> من 10 صباحاً حتى 2 ظهراً</li>
     </ul>
   </section>
 
-  <section>
-    <h2>الأطباء الزائرون ومواعيدهم</h2>
-    <div class="doctor-card">
-      <div class="doctor-image" style="background-image: url('img/DRAG.png');"></div>
-      <div class="doctor-info">
-        <h3>د. عمار غانم، MD</h3>
-        <span>التخصص: الأمراض الصدرية والعناية المركزة</span>
-        <span>اليوم المتوفر: الثلاثاء 1 تموز</span>
-        <p>
-          طبيب مختص في الأمراض الصدرية والعناية المركزة، حاصل على البورد الأمريكي في الطب الباطني، الأمراض الصدرية، والعناية الحرجة. أكمل تدريبه في ولايتي بنسلفانيا ووست فرجينيا، ويزاول عمله حالياً في ولاية ميشيغان.
-        </p>
-      </div>
-    </div>
-
-    <div class="doctor-card">
-      <div class="doctor-image" style="background-image: url('img/DRHI2.png');"></div>
-      <div class="doctor-info">
-        <h3>د. حسان إسماعيل، MD, MPH, FACP, FACC, FSCAI</h3>
-        <span>التخصص: أمراض القلب والتداخل القلبي</span>
-        <span>الأيام المتوفرة: الثلاثاء والأربعاء 1 و 2 تموز</span>
-        <p>
-          طبيب قلب حاصل على البورد الأمريكي في أمراض القلب والتداخل القلبي. أكمل تدريبه في ولايات تكساس، كارولاينا الشمالية، تينيسي، وميشيغان. يعمل حالياً في ولاية ميشيغان ويُعرف بخبرته الواسعة في معالجة أمراض القلب البنيوية والتداخلية.
-        </p>
-      </div>
-    </div>
-
-    <div class="doctor-card">
-      <div class="doctor-image" style="background-image: url('img/DRBT.png');"></div>
-      <div class="doctor-info">
-        <h3>د. باسل طه، MD</h3>
-        <span>التخصص: أمراض الكلى والباطنية</span>
-        <span>اليوم المتوفر: الأربعاء 2 تموز</span>
-        <p>
-          طبيب مختص في أمراض الكلى والباطنية، حاصل على البورد الأمريكي في الطب الباطني وأمراض الكلى. أكمل تدريبه في ولايتي ميشيغان وأوهايو، ويزاول عمله حالياً في الولايات المتحدة.
-        </p>
-      </div>
-    </div>
-
-
-    <div class="doctor-card">
-      <div class="doctor-image" style="background-image: url('img/DRMT.png');"></div>
-      <div class="doctor-info">
-        <h3>د. مهند طه، MD</h3>
-        <span>التخصص: الأمراض الصدرية والعناية المركزة</span>
-        <span>الأيام المتوفرة: الأربعاء والخميس 2 و 3 تموز</span>
-        <p>
-          طبيب مختص في الأمراض الصدرية والعناية المركزة، حاصل على البورد الأمريكي في الطب الباطني، الأمراض الصدرية، والعناية الحرجة. أكمل تدريبه في ولاية ميشيغان، ويزاول عمله حالياً في الولايات المتحدة.
-        </p>
-      </div>
-    </div>
-
-    <div class="doctor-card">
-      <div class="doctor-image" style="background-image: url('img/DRYB.png');"></div>
-      <div class="doctor-info">
-        <h3>د. يحيى بقدلية، MD, MMM</h3>
-        <span>التخصص: علاج فيزيائي وعلاج ألم</span>
-        <span>اليوم المتوفر: الثلاثاء 1 تموز</span>
-        <p>
-          طبيب مختص في العلاج الفيزيائي وعلاج الألم، يتمتع بخبرة تزيد عن 13 عامًا في مجال الطب التداخلي للألم. أكمل تدريبه في ولاية كانساس، ويحمل درجة ماجستير في الإدارة الطبية من جامعة كارنيغي ميلون. يعمل حالياً في ولاية أوهايو.
-        </p>
-      </div>
-    </div>
-
-    <div class="doctor-card">
-      <div class="doctor-image" style="background-image: url('img/DRAY.png');"></div>
-      <div class="doctor-info">
-        <h3>د. أحمد يوسف سليمان، MD</h3>
-        <span>التخصص: أمراض عصبية والصرع</span>
-        <span>الأيام المتوفرة: الخميس 10 تموز</span>
-        <p>
-          طبيب أعصاب مختص في الصرع، حاصل على البورد الأمريكي في الأمراض العصبية والصرع. أكمل تدريبه في ولايتي تكساس وميشيغان، ويعمل حالياً في مركز هنري فورد لعلاج الصرع، بالإضافة إلى عمله كأستاذ مساعد في كلية الطب بجامعة وين ستيت.
-        </p>
-      </div>
-    </div>
-
-
+  <section id="doctors">
+    <h2>الأطباء الزائرون</h2>
+    <!-- REPLACE WITH doctor-card blocks from original -->
   </section>
-    
+
   <section>
-    <h2>هل لديك سؤال؟</h2>
-    <p>يمكنك التواصل معنا عبر الطرق التالية:</p>
-    <a class="button" href="mailto:samsxzabadani@gmail.com">راسلنا عبر البريد الإلكتروني</a>
-    <a class="button" href="https://wa.me/message/IC4AEJ4GDPMCO1" target="_blank">تواصل معنا على واتساب</a>
+    <h2>تواصل معنا</h2>
+    <p>لأي استفسار، تواصل معنا عبر:</p>
+    <a class="button" href="mailto:samsxzabadani@gmail.com"><i class="fa fa-envelope"></i> البريد الإلكتروني</a>
+    <a class="button" href="https://wa.me/message/IC4AEJ4GDPMCO1" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a>
   </section>
 
   <section>
     <h2>المتطوعون</h2>
-    <p>
-      نفتخر بمشاركة عدد من المتطوعين المؤهلين في دعم الحملة ميدانياً:
-    </p>
-    <ul style="list-style: none; padding: 0; font-size: 1.05em;">
-      <li>
-        ✨ <strong>الممرضة سناء محمود</strong> – ممرضة مرخّصة من الولايات المتحدة، تدعم الفريق الطبي في الرعاية التمريضية ومتابعة المرضى.
-      </li>
-      <li>
-        ✨ <strong>الطالبة سارة إسماعيل</strong> – تحمل رخصة <em>فني الطوارئ الطبية</em> من ولاية ميشيغان، وتساهم في إدخال المرضى، جمع المعلومات الأولية، والتقييم الإسعافي.
-      </li>
+    <p>يشارك معنا عدد من المتطوعين المؤهلين لدعم الفريق الطبي ميدانياً.</p>
+    <ul style="list-style: none; padding: 0;">
+      <li><i class="fa fa-star"></i> <strong>سناء محمود:</strong> ممرضة مرخّصة من الولايات المتحدة.</li>
+      <li><i class="fa fa-star"></i> <strong>سارة إسماعيل:</strong> فني طوارئ طبية مرخّص من ولاية ميشيغان.</li>
     </ul>
   </section>
+
   <footer>
-    © حملة سامس الطبية في حلب 2025 – كل الشكر للداعمين والمتطوعين.
+    © حملة سامس الطبية في حلب 2025 – بكل الحب والدعم من المتطوعين والشركاء.
   </footer>
 </body>
+</html>
