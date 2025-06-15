@@ -7,86 +7,231 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
-    body::after {
-      content: '';
-      background: url('https://upload.wikimedia.org/wikipedia/commons/2/2f/Citadel_of_Aleppo_2007.jpg') no-repeat center center / cover;
-      opacity: 0.1;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -2;
+    :root {
+      --primary: #002b36;
+      --secondary: #00c2cb;
+      --accent: #f8b400;
+      --text: #0f1111;
+      --background: #fdfcfb;
     }
 
-    header::after {
-      content: 'حلب الشهباء';
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
       font-family: 'Noto Naskh Arabic', serif;
-      position: absolute;
-      bottom: -2.5em;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 2em;
-      color: rgba(255,255,255,0.15);
-      letter-spacing: 0.3em;
-      white-space: nowrap;
-      z-index: 0;
+      background: var(--background);
+      color: var(--text);
+      scroll-behavior: smooth;
     }
 
-    section::before {
-      content: '\f3c5'; /* FontAwesome location-dot */
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      position: absolute;
-      top: 1.5em;
-      left: 2em;
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at 80% 10%, #f8b40022, transparent 60%), radial-gradient(circle at 20% 90%, #00c2cb22, transparent 60%);
+      z-index: -1;
+    }
+
+    header {
+      padding: 6em 1em 4em;
+      background: linear-gradient(160deg, var(--primary), #00131c);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header h1 {
       font-size: 3em;
-      color: #f8b400;
-      opacity: 0.08;
-      pointer-events: none;
+      margin-bottom: 0.4em;
+      background: linear-gradient(90deg, var(--accent), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulseGlow 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { text-shadow: 0 0 5px #f8b40033; }
+      to { text-shadow: 0 0 20px #f8b400aa; }
+    }
+
+    header p {
+      font-size: 1.3em;
+      max-width: 600px;
+      margin: auto;
+      color: #e0e0e0;
+      line-height: 1.8;
+    }
+
+    .highlight {
+      background-color: var(--accent);
+      color: white;
+      padding: 0.2em 0.6em;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 5em 1.5em;
+      max-width: 1000px;
+      margin: auto;
+      position: relative;
+    }
+
+    section h2 {
+      font-size: 2.4em;
+      color: var(--primary);
+      margin-bottom: 1em;
+      border-bottom: 3px dashed var(--accent);
+      display: inline-block;
+    }
+
+    section p {
+      font-size: 1.25em;
+      line-height: 2;
+      color: #222;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--secondary);
+      color: white;
+      padding: 0.9em 2em;
+      font-size: 1.1em;
+      font-weight: bold;
+      border-radius: 40px;
+      text-decoration: none;
+      margin-top: 2em;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #009aa1;
+      transform: scale(1.05);
+    }
+
+    .doctor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2em;
+      margin-top: 3em;
+    }
+
+    .doctor-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 16px;
+      padding: 1.5em;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+    }
+
+    .doctor-card h3 {
+      color: var(--primary);
+      font-size: 1.4em;
+      margin-bottom: 0.4em;
+    }
+
+    .doctor-card span {
+      display: block;
+      color: var(--secondary);
+      margin-bottom: 0.5em;
+      font-weight: bold;
+    }
+
+    .doctor-card p {
+      font-size: 1em;
+      color: #444;
+      line-height: 1.6;
     }
 
     footer {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/d/d6/Traditional_souk_in_Aleppo.jpg') no-repeat center center / cover;
-      background-blend-mode: multiply;
-      background-color: rgba(0,0,0,0.7);
+      background: linear-gradient(to right, var(--primary), var(--secondary));
       color: white;
       text-align: center;
-      padding: 3em 1em;
+      padding: 4em 2em;
       font-size: 1.2em;
+      position: relative;
     }
 
     footer::after {
       content: 'من قلب حلب إلى قلوبكم ❤️';
       display: block;
       font-size: 1.3em;
-      margin-top: 1em;
-      opacity: 0.9;
+      margin-top: 1.5em;
+      color: #f8b400;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2em;
+      }
+
+      section h2 {
+        font-size: 1.8em;
+      }
     }
   </style>
 </head>
 <body>
-  <header style="padding: 6em 1em; background: radial-gradient(circle at center, #003246 0%, #00131c 100%); color: white; text-align: center; position: relative;">
-    <img src="img/logo.jpeg" alt="شعار سامس" style="width: 140px; height: 140px; border-radius: 50%; border: 4px solid white; margin-bottom: 1em;">
-    <h1 style="font-size: 3em;">حملة سامس الطبية – حلب 2025</h1>
-    <p style="font-size: 1.3em; max-width: 600px; margin: 0 auto;">خدمات طبية مجانية من أطباء زائرين من الولايات المتحدة، مباشرة إلى قلب حلب.</p>
+  <header>
+    <h1>حملة سامس الطبية – حلب 2025</h1>
+    <p>رحلة طبية إنسانية <span class="highlight">من الولايات المتحدة إلى حلب</span> بقيادة أطباء قلّ نظيرهم في الإنسانية والخبرة.</p>
   </header>
 
-  <section style="padding: 4em 1em; max-width: 900px; margin: auto; position: relative;">
-    <h2 style="color: #002b36; font-size: 2.2em; border-bottom: 3px solid #f8b400; display: inline-block; margin-bottom: 1em;">من نحن؟</h2>
-    <p style="font-size: 1.2em; line-height: 1.8;">SAMS هي منظمة طبية إغاثية غير ربحية، تقدم الرعاية الصحية والتعليم الطبي للمجتمعات المتأثرة بالأزمات. تشمل مبادراتها الحملات الطبية المجانية، ومنها هذه الحملة في حلب.</p>
+  <section>
+    <h2>من نحن؟</h2>
+    <p>SAMS هي منظمة طبية إغاثية غير ربحية، تكرّس جهودها لتقديم الرعاية الصحية والتعليم الطبي في المناطق المتأثرة بالأزمات. في قلب مهمتنا: <span class="highlight">الكرامة، والعلم، والتضامن</span>.</p>
   </section>
 
-  <section style="padding: 4em 1em; max-width: 900px; margin: auto; position: relative;">
-    <h2 style="color: #002b36; font-size: 2.2em; border-bottom: 3px solid #f8b400; display: inline-block; margin-bottom: 1em;">عن الحملة</h2>
-    <p style="font-size: 1.2em; line-height: 1.8;">يقوم أطباء متطوعون من الولايات المتحدة بتقديم استشارات تخصصية مجانية في مستشفى حلب الوطني خلال تموز 2025، ضمن مجالات القلب، الأعصاب، الصدرية، الكلى، والعلاج الفيزيائي.</p>
+  <section>
+    <h2>عن الحملة</h2>
+    <p>خلال أسبوعين من شهر تموز 2025، سيقوم فريق من الأطباء الزائرين بتقديم استشارات مجانية ضمن مستشفى حلب الوطني. التخصصات تشمل: <span class="highlight">أمراض القلب، الأعصاب، الصدرية، الكلى</span> والعلاج الفيزيائي.</p>
+    <a class="button" href="#contact">احجز موعدك الآن</a>
   </section>
 
-  <section style="padding: 4em 1em; max-width: 900px; margin: auto; position: relative;">
-    <h2 style="color: #002b36; font-size: 2.2em; border-bottom: 3px solid #f8b400; display: inline-block; margin-bottom: 1em;">تواصل معنا</h2>
-    <p style="font-size: 1.2em; line-height: 1.8;">للاستفسار أو التسجيل، يمكنكم التواصل معنا عبر البريد الإلكتروني أو واتساب.</p>
-    <a href="mailto:samsxzabadani@gmail.com" style="display:inline-block; margin:1em 0; background:#f8b400; color:#fff; padding:0.8em 1.5em; border-radius:30px; text-decoration:none; font-weight:bold;">📧 راسلنا</a><br>
-    <a href="https://wa.me/message/IC4AEJ4GDPMCO1" target="_blank" style="display:inline-block; margin:1em 0; background:#00c2cb; color:#fff; padding:0.8em 1.5em; border-radius:30px; text-decoration:none; font-weight:bold;">📱 تواصل معنا عبر واتساب</a>
+  <section>
+    <h2>الأطباء المشاركون</h2>
+    <div class="doctor-grid">
+      <div class="doctor-card">
+        <h3>د. عمار الحلبي</h3>
+        <span>أخصائي القلب</span>
+        <p>يقدّم خبرته الواسعة في أمراض القلب التداخلية، ويعمل حاليًا في أحد المراكز الطبية الرائدة في ميشيغان.</p>
+      </div>
+      <div class="doctor-card">
+        <h3>د. يمنى السعيد</h3>
+        <span>أمراض الأعصاب</span>
+        <p>مختصة في اضطرابات الجهاز العصبي والصرع، بخبرة دولية في مراكز تعليمية متقدمة.</p>
+      </div>
+      <div class="doctor-card">
+        <h3>د. باسل زهران</h3>
+        <span>طب الكلى والباطنية</span>
+        <p>يساهم في تقديم استشارات دقيقة للأمراض المزمنة والمعقدة المرتبطة بالكلى.</p>
+      </div>
+      <div class="doctor-card">
+        <h3>د. سارة إبراهيم</h3>
+        <span>علاج فيزيائي وتأهيلي</span>
+        <p>متخصصة في إعادة تأهيل المرضى بعد الإصابات والعمليات الجراحية، مع تركيز على تحسين جودة الحياة.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>تواصل معنا</h2>
+    <p>فريقنا مستعد للإجابة على استفساراتكم والتواصل معكم لحجز موعد في أقرب فرصة.</p>
+    <a class="button" href="mailto:samsxzabadani@gmail.com">📧 راسلنا عبر البريد</a>
+    <br><br>
+    <a class="button" href="https://wa.me/message/IC4AEJ4GDPMCO1" target="_blank">📱 واتساب مباشر</a>
   </section>
 
   <footer>
