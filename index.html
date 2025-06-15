@@ -230,98 +230,65 @@
 
   <div class="section-divider"></div>
 
-<!-- FILTER BUTTONS -->
-<div class="doctor-filter">
-  <button class="filter-btn active" data-filter="all">الكل</button>
-  <button class="filter-btn" data-filter="vascular">🫀 الأوعية</button>
-  <button class="filter-btn" data-filter="cardiology">❤️ القلب</button>
-  <button class="filter-btn" data-filter="nephrology">🩺 الكلى</button>
-  <button class="filter-btn" data-filter="internal">🧠 الباطنية</button>
-  <button class="filter-btn" data-filter="radiology">🖥️ الأشعة</button>
-  <button class="filter-btn" data-filter="ophthalmology">👁️‍🗨️ العيون</button>
-  <button class="filter-btn" data-filter="pediatrics">🧒 الأطفال</button>
-</div>
-
-<!-- SAMPLE DOCTOR CARDS -->
-<div class="doctor-grid">
-  <div class="doctor-card cardiology">
-    <img src="images/sample.jpg" alt="طبيب قلب" class="doctor-photo">
-    <h3>د. محمد قلب</h3>
-    <span>اختصاصي أمراض القلب</span>
-    <p>طبيب متمرس في معالجة أمراض القلب والشرايين، يعمل حاليًا في مستشفى القلب التخصصي في بيروت.</p>
-  </div>
-
-  <div class="doctor-card nephrology">
-    <img src="images/sample.jpg" alt="طبيب كلى" class="doctor-photo">
-    <h3>د. أحمد كلى</h3>
-    <span>اختصاصي أمراض الكلى</span>
-    <p>اختصاصي في أمراض الكلى المزمنة والغسيل الكلوي، بخبرة تتجاوز 15 عامًا.</p>
-  </div>
-
-  <div class="doctor-card radiology">
-    <img src="images/sample.jpg" alt="طبيبة أشعة" class="doctor-photo">
-    <h3>د. سارة أشعة</h3>
-    <span>اختصاصية أشعة</span>
-    <p>تختص في التصوير الشعاعي والتصوير بالرنين المغناطيسي، وتعمل في مستشفى جامعي بإسبانيا.</p>
-  </div>
-</div>
-
-<!-- FILTER SCRIPT -->
-<script>
-  const buttons = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.doctor-card');
-
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.getAttribute('data-filter');
-
-      cards.forEach(card => {
-        if (filter === 'all' || card.classList.contains(filter)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
+  <section>
+    <h2>الأطباء المشاركون</h2>
+    <!-- FILTER BUTTONS -->
+    <div class="doctor-filter">
+      <button class="filter-btn active" data-filter="all">الكل</button>
+      <button class="filter-btn" data-filter="vascular">الأوعية</button>
+      <button class="filter-btn" data-filter="cardiology">القلب</button>
+      <button class="filter-btn" data-filter="nephrology">الكلى</button>
+      <button class="filter-btn" data-filter="internal">الباطنية</button>
+      <button class="filter-btn" data-filter="radiology">الأشعة</button>
+      <button class="filter-btn" data-filter="ophthalmology">العيون</button>
+      <button class="filter-btn" data-filter="pediatrics">الأطفال</button>
+    </div>
+    
+    <!-- SAMPLE DOCTOR CARDS -->
+    <div class="doctor-grid">
+      <div class="doctor-card cardiology">
+        <img src="images/sample.jpg" alt="طبيب قلب" class="doctor-photo">
+        <h3>د. محمد قلب</h3>
+        <span>اختصاصي أمراض القلب</span>
+        <p>طبيب متمرس في معالجة أمراض القلب والشرايين، يعمل حاليًا في مستشفى القلب التخصصي في بيروت.</p>
+      </div>
+    
+      <div class="doctor-card nephrology">
+        <img src="images/sample.jpg" alt="طبيب كلى" class="doctor-photo">
+        <h3>د. أحمد كلى</h3>
+        <span>اختصاصي أمراض الكلى</span>
+        <p>اختصاصي في أمراض الكلى المزمنة والغسيل الكلوي، بخبرة تتجاوز 15 عامًا.</p>
+      </div>
+    
+      <div class="doctor-card radiology">
+        <img src="images/sample.jpg" alt="طبيبة أشعة" class="doctor-photo">
+        <h3>د. سارة أشعة</h3>
+        <span>اختصاصية أشعة</span>
+        <p>تختص في التصوير الشعاعي والتصوير بالرنين المغناطيسي، وتعمل في مستشفى جامعي بإسبانيا.</p>
+      </div>
+    </div>
+    
+    <!-- FILTER SCRIPT -->
+    <script>
+      const buttons = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.doctor-card');
+    
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+    
+          cards.forEach(card => {
+            if (filter === 'all' || card.classList.contains(filter)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
       });
-    });
-  });
-</script>
-
-<style>
-  .doctor-filter {
-    text-align: center;
-    margin: 3em 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.6em;
-    max-width: 100%;
-  }
-  
-  .filter-btn {
-    background: white;
-    border: 2px solid var(--secondary);
-    color: var(--secondary);
-    padding: 0.4em 1.2em;
-    font-size: 1em;
-    font-weight: bold;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    white-space: nowrap;
-    flex-grow: 0;
-  }
-
-
-  .filter-btn:hover,
-  .filter-btn.active {
-    background-color: var(--secondary);
-    color: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
-</style>
+    </script>
     
     <style>
       .doctor-filter {
